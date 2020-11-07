@@ -10,9 +10,11 @@ namespace SVA_Web_API
 {
     public class Startup
     {
+        private string strCors = string.Empty;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            strCors = configuration.GetValue<string>("CORSUrl");
         }
 
         public IConfiguration Configuration { get; }
@@ -27,6 +29,11 @@ namespace SVA_Web_API
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
+            });           
+
+            services.AddCors(c =>
+            {               
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins(strCors));
             });
         }
 
@@ -47,6 +54,16 @@ namespace SVA_Web_API
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.UseRouting();            
+            app.UseCors(options => options.WithOrigins(strCors));           
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });           
 
             app.UseRouting();
 
