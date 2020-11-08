@@ -1,1 +1,15 @@
 ﻿This is Commands Document
+
+
+
+
+
+
+
+
+SQL Commands
+1. https://www.youtube.com/watch?v=CLVJVA9cTuU&list=PL4WEkbdagHIQVbiTwos0E38VghMJA06OT
+
+2. 
+Scaffold-DbContext "Server=localhost\SQLExpress;Database=SVADB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+  
