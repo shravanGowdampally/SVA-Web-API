@@ -16,6 +16,9 @@ Scaffold-DbContext "Server=localhost\SQLExpress;Database=SVADB;Trusted_Connectio
 2. To re-create Context , if there is a change in some db object
 Scaffold-DbContext "Server=localhost\SQLExpress;Database=SVADB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
 
-2. To re-create Context , if there is a change in some db object, To use connection string from APp settings
+3. To re-create Context , if there is a change in some db object, To use connection string from APp settings
 Scaffold-DbContext -Connection Name=SVADB-DEV Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
+
+4. Scaffold-DBContext Parameters - 
+https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell
   

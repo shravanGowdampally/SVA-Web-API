@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SVA_Web_API.Models;
 
 namespace SVA_Web_API
 {
@@ -35,6 +37,15 @@ namespace SVA_Web_API
             {               
                 c.AddPolicy("AllowOrigin", options => options.WithOrigins(strCors));
             });
+
+            services.AddDbContext<DbContext, SVADBContext>();
+
+            services.AddDbContext<SVADBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SVADBDEV")));
+
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //                .AddEntityFrameworkStores<NewDBContext>()
+            //                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
