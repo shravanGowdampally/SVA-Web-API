@@ -21,4 +21,8 @@ Scaffold-DbContext -Connection Name=SVADBDEV Microsoft.EntityFrameworkCore.SqlSe
 
 4. Scaffold-DBContext Parameters - 
 https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell
+
+
+Start from :
+https://www.youtube.com/watch?v=dP1nI_Ht0k8
   

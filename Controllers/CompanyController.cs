@@ -41,8 +41,14 @@ namespace SVA_Web_API.Controllers
                 //context.SaveChanges();
 
                 //To delete a company
-               // context.Company.Remove(c);
+                // context.Company.Remove(c);
                 //context.SaveChanges();
+
+                //Inner Join
+                //Company c = context.Company.Include(C => C.Individuals).where(x => x.name="").FirstOrDefault();
+
+                //Inner join for inner join
+                // .ThenInclude
             }
         }
     }

@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using SVA_Web_API.Models;
 
 namespace SVA_Web_API
@@ -26,6 +28,10 @@ namespace SVA_Web_API
         {
 
             services.AddControllersWithViews();
+
+            services.AddMvc(option =>  option.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddNewtonsoftJson(opt =>  opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
