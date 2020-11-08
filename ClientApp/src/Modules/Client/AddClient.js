@@ -1,10 +1,17 @@
 import React from "react";
 import { useStyles } from "../Styles/CustomStyles";
+import shared from "../Shared";
+
+const { TextBox } = shared;
 
 const AddClient = (props) => {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return <div className={classes.pageContent}>This is add client page</div>;
+    return (
+        <div className={classes.pageContent}>
+            <TextBox />
+        </div>
+    );
 };
 
 export default AddClient;
