@@ -26,7 +26,7 @@ namespace SVA_Web_API.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost\\SQLExpress;Database=SVADB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Name=SVADB");
             }
         }
 

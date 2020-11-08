@@ -41,7 +41,7 @@ namespace SVA_Web_API
             services.AddDbContext<DbContext, SVADBContext>();
 
             services.AddDbContext<SVADBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SVADBDEV")));
+                options.UseSqlServer(Configuration.GetConnectionString("SVADB")));
 
             //services.AddIdentity<ApplicationUser, IdentityRole>()
             //                .AddEntityFrameworkStores<NewDBContext>()
