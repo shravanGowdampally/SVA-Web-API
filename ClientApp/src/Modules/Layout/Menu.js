@@ -26,10 +26,19 @@ const Menu = (props) => {
   );
   const [addClientSelected, setAddClientLink] = useState(
     props.defaultLoad == "/addClient"
-  );
+    );
+    const [searchSelected, setSearchLink] = useState(
+        props.defaultLoad == "/Search"
+    );
+    const [adminSelected, setAdminLink] = useState(
+        props.defaultLoad == "/Admin"
+    );
 
   const handleActiveLink = (selectedMenu) => {
-    setHomeActiveLink(false);
+      setHomeActiveLink(false);
+      setAddClientLink(false);
+      setSearchLink(false);
+      setAdminLink(false);
     switch (selectedMenu) {
       case "home":
         setHomeActiveLink(true);
@@ -38,10 +47,10 @@ const Menu = (props) => {
         setAddClientLink(true);
             break;
         case "Search":
-            setAddClientLink(true);
+            setSearchLink(true);
             break;
         case "Admin":
-            setAddClientLink(true);
+            setAdminLink(true);
             break;
       default:
         setHomeActiveLink(true);
@@ -102,7 +111,7 @@ const Menu = (props) => {
                               idIcon="SearchIcon"
                               idLabel="divSearchIcon"
                               onClick={() => handleActiveLink("Search")}
-                              selected={addClientSelected}
+                              selected={searchSelected}
                               to="/Search"
                               image={<SearchIcon fontSize="large" />}
                               normalCss={true}
@@ -113,7 +122,7 @@ const Menu = (props) => {
                               idIcon="SettingsIcon"
                               idLabel="divSettingsIcon"
                               onClick={() => handleActiveLink("Admin")}
-                              selected={addClientSelected}
+                              selected={adminSelected}
                               to="/Admin"
                               image={<SettingsIcon fontSize="large" />}
                               normalCss={true}
