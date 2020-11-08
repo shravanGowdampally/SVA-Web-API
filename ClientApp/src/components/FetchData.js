@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
+import shared from "../Modules/Shared";
+
+const { services } = shared;
 
 export class FetchData extends Component {
-  static displayName = FetchData.name;
+    static displayName = FetchData.name;
+   
 
   constructor(props) {
     super(props);
     this.state = { forecasts: [], loading: true };
-  }
-
+    }
+   
   componentDidMount() {
     this.populateWeatherData();
   }
@@ -51,10 +55,26 @@ export class FetchData extends Component {
     );
   }
 
-  async populateWeatherData() {
-      const response = await fetch('https://localhost:44313/weatherforecast');
-      console.log(response);
-    const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
+    async populateWeatherData() {
+        services.get(
+            "weatherforecast",
+           true,
+            (response) => {
+              
+                console.log("Testing Axios");
+                console.log(response.data);
+            
+            },
+            (message) => { }
+        );
+
+
+    //    const response = await fetch('https://localhost:44313/weatherforecast');
+    //    console.log("Testing response");
+    //    console.log(response);
+       
+    //    const data = await response.json();
+    //    console.log(data);
+    //this.setState({ forecasts: data, loading: false });
   }
 }

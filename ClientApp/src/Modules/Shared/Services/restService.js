@@ -34,7 +34,8 @@ const post = (url, isUKLanguage, request, successCallback, failureCallback) =>
 const get = (url, isUKLanguage, successCallback, failureCallback) =>
   axios
     .get(url, ConstructHeader(isUKLanguage))
-    .then((response) => successCallback(response.data.Result))
+        //.then((response) => successCallback(response.data.Result))
+        .then((response) => successCallback(response))
     .catch((error) => {
       let message = error.message;
       if (
