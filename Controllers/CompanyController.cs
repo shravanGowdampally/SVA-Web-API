@@ -28,6 +28,21 @@ namespace SVA_Web_API.Controllers
            using(var context = new SVADBContext())
             {
                 return context.Company.ToList();
+
+                //To add a company
+                //Company c = new Company();
+                //c.Address = "";
+                //context.Company.Add(c);
+                //context.SaveChanges();
+
+                //To update a company
+                //Company c = context.Company.where(x => x.name="").FirstOrDefault();
+                //c.Address = "123";               
+                //context.SaveChanges();
+
+                //To delete a company
+               // context.Company.Remove(c);
+                //context.SaveChanges();
             }
         }
     }

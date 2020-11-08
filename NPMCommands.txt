@@ -7,9 +7,15 @@
 
 
 
-SQL Commands
+SQL Commands (Commands to be executed in Package Manager console)
 1. https://www.youtube.com/watch?v=CLVJVA9cTuU&list=PL4WEkbdagHIQVbiTwos0E38VghMJA06OT
 
-2. 
+2. To create Context for the first time
 Scaffold-DbContext "Server=localhost\SQLExpress;Database=SVADB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+2. To re-create Context , if there is a change in some db object
+Scaffold-DbContext "Server=localhost\SQLExpress;Database=SVADB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
+
+2. To re-create Context , if there is a change in some db object, To use connection string from APp settings
+Scaffold-DbContext -Connection Name=SVADB-DEV Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
   
